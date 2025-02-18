@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Hit Songs Library</title>
+  <link rel="stylesheet" href="ass.css">
+</head>
+<body>
+
+  <h1>Top Hit Songs Library</h1>
+
+  <!-- Search bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search songs, movies, actors, singers..." onkeyup="searchSongs()">
+  </div>
+
+  <!-- Filter by language -->
+  <div class="filter-container">
+    <label for="languageFilter">Filter by Language:</label>
+    <select id="languageFilter" onchange="filterSongsByLanguage()">
+      <option value="all">All Languages</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Tamil">Tamil</option>
+      <option value="Malayalam">Malayalam</option>
+      <option value="Telugu">Telugu</option>
+      <option value="Kannada">Kannada</option>
+    </select>
+  </div>
+
+  <!-- Sorting options -->
+  <div class="sort-container">
+    <label for="sortOptions">Sort by:</label>
+    <select id="sortOptions" onchange="sortSongs()">
+      <option value="year">Year</option>
+      <option value="rating">Rating</option>
+    </select>
+  </div>
+
+  <!-- This will hold the song information dynamically -->
+  <div id="songs-container"></div>
+
+  <script>
+    let songsData = [];
+
+    // Function to load and parse XML
+    function loadXMLDoc(filename) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", filename, false);
+      xhttp.send();
+      return xhttp.responseXML;
+    }
+
+    // Load songs from XML and store in a global array
+    function loadSongs() {
+      const xmlDoc = loadXMLDoc('songs.xml'); // XML file (your data)
+      const languages = xmlDoc.getElementsByTagName('language');
+
+      for (let i = 0; i < languages.length; i++) {
+        const language = languages[i];
+        const languageName = language.getAttribute('name');
+        const songs = language.getElementsByTagName('song');
+
+        for (let j = 0; j < songs.length; j++) {
+          const song = songs[j];
+          songsData.push({
+            language: languageName,
+            title: song.getElementsByTagName('title')[0].childNodes[0].nodeValue,
+            movie: song.getElementsByTagName('movie')[0].childNodes[0].nodeValue,
+            actor: song.getElementsByTagName('actor')[0].childNodes[0].nodeValue,
+            actress: song.getElementsByTagName('actress')[0].childNodes[0].nodeValue,
+            singer: song.getElementsByTagName('singer')[0].childNodes[0].nodeValue,
+            lyricist: song.getElementsByTagName('lyricist')[0].childNodes[0].nodeValue,
+            year: song.getElementsByTagName('year')[0].childNodes[0].nodeValue,
+            rating: song.getElementsByTagName('rating')[0].childNodes[0].nodeValue,
+          });
+        }
+      }
+      displaySongs(songsData);
+    }
+
+    // Function to display the songs
+    function displaySongs(songsArray) {
+      const songsContainer = document.getElementById('songs-container');
+      songsContainer.innerHTML = ''; // Clear previous content
+
+      songsArray.forEach(song => {
+        const songDiv = document.createElement('div');
+        songDiv.classList.add('song');
+        songDiv.innerHTML = `
+          <p class="song-title">${song.title}</p>
+          <p class="movie">Movie: ${song.movie}</p>
+          <p class="actor">Actor: ${song.actor}, Actress: ${song.actress}</p>
+          <p class="singer">Singer: ${song.singer}, Lyricist: ${song.lyricist}</p>
+          <p class="year">Year: ${song.year}, Rating: ${song.rating}</p>
+          <p class="language">Language: ${song.language}</p>
+        `;
+        songsContainer.appendChild(songDiv);
+      });
+    }
+
+    // Search functionality
+    function searchSongs() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const filteredSongs = songsData.filter(song =>
+        song.title.toLowerCase().includes(searchTerm) ||
+        song.movie.toLowerCase().includes(searchTerm) ||
+        song.actor.toLowerCase().includes(searchTerm) ||
+        song.singer.toLowerCase().includes(searchTerm)
+      );
+      displaySongs(filteredSongs);
+    }
+
+    // Filter by language functionality
+    function filterSongsByLanguage() {
+      const selectedLanguage = document.getElementById('languageFilter').value;
+      const filteredSongs = selectedLanguage === 'all'
+        ? songsData
+        : songsData.filter(song => song.language === selectedLanguage);
+      displaySongs(filteredSongs);
+    }
+
+    // Sort songs functionality
+    function sortSongs() {
+      const sortBy = document.getElementById('sortOptions').value;
+      let sortedSongs = [...songsData]; // Create a copy of songsData
+
+      if (sortBy === 'year') {
+        sortedSongs.sort((a, b) => b.year - a.year); // Sort by year (desc)
+      } else if (sortBy === 'rating') {
+        sortedSongs.sort((a, b) => b.rating - a.rating); // Sort by rating (desc)
+      }
+
+      displaySongs(sortedSongs);
+    }
+
+    // Load songs when the page loads
+    window.onload = loadSongs;
+  </script>
+
+</body>
+</html>

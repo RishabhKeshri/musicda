@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <language name="Hindi">
+    <song>
+      <title><![CDATA[Tum Hi Ho]]></title>
+      <movie><![CDATA[Aashiqui 2]]></movie>
+      <actor><![CDATA[Aditya Roy Kapoor]]></actor>
+      <actress><![CDATA[Shraddha Kapoor]]></actress>
+      <singer><![CDATA[Arijit Singh]]></singer>
+      <lyricist><![CDATA[Mithoon]]></lyricist>
+      <year><![CDATA[2013]]></year>
+      <rating><![CDATA[4.8]]></rating>
+    </song>
+    <song>
+      <title><![CDATA[Channa Mereya]]></title>
+      <movie><![CDATA[Ae Dil Hai Mushkil]]></movie>
+      <actor><![CDATA[Ranbir Kapoor]]></actor>
+      <actress><![CDATA[Anushka Sharma]]></actress>
+      <singer><![CDATA[Arijit Singh]]></singer>
+      <lyricist><![CDATA[Amitabh Bhattacharya]]></lyricist>
+      <year><![CDATA[2016]]></year>
+      <rating><![CDATA[4.7]]></rating>
+    </song>
+    <song>
+      <title><![CDATA[Kalank Title Track]]></title>
+      <movie><![CDATA[Kalank]]></movie>
+      <actor><![CDATA[Varun Dhawan]]></actor>
+      <actress><![CDATA[Alia Bhatt]]></actress>
+      <singer><![CDATA[Arijit Singh]]></singer>
+      <lyricist><![CDATA[Amitabh Bhattacharya]]></lyricist>
+      <year><![CDATA[2019]]></year>
+      <rating><![CDATA[4.6]]></rating>
+    </song>
+  </language>
+
+  <language name="Tamil">
+    <song>
+      <title><![CDATA[Why This Kolaveri Di]]></title>
+      <movie><![CDATA[3]]></movie>
+      <actor><![CDATA[Dhanush]]></actor>
+      <actress><![CDATA[Shruti Haasan]]></actress>
+      <singer><![CDATA[Dhanush]]></singer>
+      <lyricist><![CDATA[Dhanush]]></lyricist>
+      <year><![CDATA[2011]]></year>
+      <rating><![CDATA[4.9]]></rating>
+    </song>
+    <!-- Add two more Tamil songs similarly -->
+  </language>
+
+  <!-- Repeat similar structure for other languages like Malayalam, Telugu, and Kannada -->
+</library>

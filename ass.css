@@ -1,0 +1,115 @@
+/* Base styles for the body */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Header styles */
+  h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Language category section */
+  .category {
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading for each category */
+  h2 {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  /* Song section styling */
+  .song {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+  }
+  
+  /* Song hover effect */
+  .song:hover {
+    background-color: #e8f6ff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Song title styling */
+  .song-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  /* Additional info about the song */
+  .movie, .actor, .year, .singer {
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  /* Highlighting movie name */
+  .movie {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #2980b9;
+  }
+  
+  /* Actor and Actress section */
+  .actor {
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+  
+  /* Singer and Lyricist section */
+  .singer {
+    font-size: 1rem;
+    color: #8e44ad;
+  }
+  
+  /* Year and Rating styling */
+  .year {
+    font-size: 0.9rem;
+    color: #16a085;
+  }
+/* Search bar styling */
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #searchInput {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* Filter and sort container styling */
+  .filter-container, .sort-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #languageFilter, #sortOptions {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+    
